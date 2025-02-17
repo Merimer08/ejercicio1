@@ -1,4 +1,3 @@
-</x.layouts.footer>
 <footer class="footer footer-center bg-orange-600 text-primary-content p-10">
     <aside>
         <svg
