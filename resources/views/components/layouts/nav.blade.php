@@ -1,6 +1,10 @@
-<x.layouts.nav>
-    <nav class="h-10v bg-nav flex flex-row justify-start items-center px-4">
-    <button class="btn btn-sm btn-primary">About</button>
+
+<nav class="h-full bg-nav flex justify-center items-center px-4 space-x-8 w-full">
+    <button class="btn btn-outline btn-primary">About</button>
+    <button class="btn btn-outline btn-success">Noticias</button>
+    <button class="btn btn-outline btn-secondary">Main</button>
+    <button class="btn btn-outline btn-error">Error</button>
+
 </nav>
 
-</x.layouts.nav>
+
