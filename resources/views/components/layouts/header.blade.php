@@ -1,4 +1,4 @@
-</x.layouts.header>
+
 <header class="h-15v bg-header flex flex-row justify-between
  items-center  p-3
 ">
@@ -25,4 +25,3 @@
     </div>
 
 </header>
-</x.layouts.header>
