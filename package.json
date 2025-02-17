@@ -1,6 +1,7 @@
 {
     "private": true,
     "type": "module",
+    "homepage": "https://Merimer08.github.io/ejercicio1",
     "scripts": {
         "build": "vite build",
         "dev": "vite"
