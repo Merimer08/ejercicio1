@@ -18,3 +18,6 @@
     *   Auth para el login y el register
     * Components/layouts —> estructura de la pagina que quiero que se vea en todas las paginas. Creas los estilos de las mismas al tener separado footer header 
 - Routes —> web.php
+
+
+## RUtas del navegador para añadirlas en web.php
