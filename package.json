@@ -1,16 +1,13 @@
 {
     "private": true,
     "type": "module",
-    "homepage": "https://Merimer08.github.io/ejercicio1",
+    "homepage": "https://merimer08.github.io/ejercicio1",
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "dev": "vite",
-        "build": "vite build",
         "lint": "eslint .",
         "preview": "vite preview",
-        "deploy": "vite build && gh-pages -d dist"
-    
+        "deploy": "vite build && gh-pages -d public/build"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -19,6 +16,7 @@
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
         "daisyui": "^4.12.23",
+        "gh-pages": "^6.3.0",
         "laravel-vite-plugin": "^1.2.0",
         "postcss": "^8.4.31",
         "tailwindcss": "^3.1.0",

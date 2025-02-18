@@ -21,3 +21,8 @@
 
 
 ## RUtas del navegador para añadirlas en web.php
+
+## publicarlo gon git
+-  npm i -D gh-pages
+- npm run build
+- npm run deploy
