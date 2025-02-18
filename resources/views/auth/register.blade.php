@@ -1,4 +1,5 @@
 <x-guest-layout>
+<div class="bg-orange-100 p-4"> <!-- no cambia el color de fondo -->
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,4 +50,5 @@
             </x-primary-button>
         </div>
     </form>
+</div>
 </x-guest-layout>

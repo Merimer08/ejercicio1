@@ -8,14 +8,15 @@
     <title>Document</title>
     @vite("resources/css/app.css")
 </head>
-<body>
+<body >
 <x-layouts.header />
 <x-layouts.nav />
 
 <main class="bg-main h-65v">
     {{$slot}}
 </main>
-<x-layouts.footer />
+<x-layouts.footer class="min-h-[200px]" />
+
 
 </body>
 </html>
