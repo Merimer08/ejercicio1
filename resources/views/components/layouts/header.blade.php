@@ -2,14 +2,15 @@
 <header class="h-15v bg-header flex flex-row justify-between
  items-center  p-3
 ">
-    {{--    --}}
+    {{-- DONDE ESTA EL DE LOGIN   --}}
     <!--   -->
     <img class="h-16 max-h-full bg-white" src="{{asset("img/logo.png")}}" alt="logo">
     <h1 class="text-5xl text-orange-500 ">DESARROLLO WEB</h1>
     @guest
             <form action="">
-                <a href="{{route('login')}}" class="btn btn-sm btn-primary btn-outline">Login</a>
-                <button class="btn btn-sm">Register</button>
+                <a href="{{route('login')}}" class="btn btn-sm btn btn-outline text-black hover:bg-orange-300 hover:text-black">Login</a>
+                <a href="{{route('register')}}" class="btn btn-sm btn btn-active text-black hover:bg-orange-300 hover:text-black">Register</a>
+                
             </form>
         @endguest
         @auth
