@@ -1,7 +1,7 @@
 <x-layouts.layout>
     @guest
-    class="hero min-h-full"
-        style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+  <div  class="hero min-h-full"
+        style="background-image: url('{{asset('/img/fondo.jpg')}}');">
         <div class="hero-overlay bg-opacity-60"></div>
         <div class="hero-content text-neutral-content text-center">
             <div class="max-w-md">
@@ -13,7 +13,8 @@
             <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
         </div>
     </div>
-</div>
+    </div>
+        
 @endguest
 
     @auth
