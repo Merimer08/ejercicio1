@@ -3,8 +3,8 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <!-- Contenedor que centra el formulario y le da el espacio uniforme -->
-    <div class="h-screen flex items-center justify-center">
-        <form method="POST" action="{{ route('login') }}" class="w-1/3 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between h-2/3">
+    <div class="bg-gradient-to-r from-yellow-400 to-red-600 via-yellow-500 p-4 h-screen flex items-center justify-center">
+        <form method="POST" action="{{ route('login') }}" class="w-1/3 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between h-auto">
             @csrf
 
             <!-- Título centrado con espacio -->
