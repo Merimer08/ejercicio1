@@ -4,8 +4,11 @@
 ">
     {{-- DONDE ESTA EL DE LOGIN   --}}
     <!--   -->
-    <img class="h-16 max-h-full bg-white" src="{{asset("img/logo.png")}}" alt="logo">
-    <h1 class="text-5xl text-orange-500 ">DESARROLLO WEB</h1>
+    <a href="{{ route('main') }}">
+    <img class="h-16 max-h-full bg-white" src="{{ asset('img/logo.png') }}" alt="logo">
+    </a>
+    <h1 class="text-5xl  text-orange-500 text-center">DESARROLLO WEB </h1>
+   
     @guest
             <form action="">
                 <a href="{{route('login')}}" class="btn btn-sm btn btn-outline text-black hover:bg-orange-300 hover:text-black">Login</a>

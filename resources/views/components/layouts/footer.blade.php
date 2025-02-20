@@ -1,4 +1,4 @@
-<footer class="footer footer-center bg-orange-600 text-primary-content p-10">
+<footer class="footer footer-center bg-orange-600 text-primary-content p-10 mt-80">
     <aside>
         <svg
             width="50"
