@@ -85,6 +85,14 @@ en env configuramos el port
 ![alt text](documentacion/imagd2.png) importante quitar de env las #
 
 Y para hacerlo funcionar docker compose up -d
+
+### limpieza de docker y de mysql
+![alt text](documentacion/borrard.png)
+![alt text](documentacion/borrard1.png)
+![alt text](documentacion/borrard2.png)
+![alt text](documentacion/borrard3.png)
  
+
+ - Meter en gitgnore mysql y php artisan migrate
 2º factorias--> clases de larabel que me permiten fabricar valoores
 3º Ider clases de laravel que me permite llamar a latabla que me permite gestionar los datos
