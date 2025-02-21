@@ -1,0 +1,27 @@
+[33m90895ca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~2
+[33m5012f5f[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: commit: readmee
+[33ma50a7ff[m HEAD@{2}: commit: Ignorar los datos de MySQL y archivos sensibles
+[33m90895ca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{3}: commit: docker-compose
+[33m63be823[m HEAD@{4}: commit: cambiado fondo
+[33m70c2ada[m HEAD@{5}: commit: menu hamburguesa en el login y register
+[33mbd5ce92[m HEAD@{6}: commit: antes de tocar header
+[33m0313d2e[m HEAD@{7}: commit: solucionado en logout
+[33m90dabd8[m HEAD@{8}: commit: antes de la base de datos
+[33mc85adb8[m HEAD@{9}: commit: login/register fix
+[33mfb734a2[m HEAD@{10}: commit: botones de login y register
+[33mbd1eee4[m HEAD@{11}: commit: fix gh-pages
+[33m73b60f2[m HEAD@{12}: commit: comprobar los comits antes de descargarlo
+[33m3623e53[m HEAD@{13}: commit: stilo login
+[33m32e7065[m HEAD@{14}: commit: Nav funcionando
+[33m504f567[m HEAD@{15}: commit: dasy
+[33m8b46ef7[m HEAD@{16}: commit: web.la ultima linea
+[33m2e6f379[m HEAD@{17}: commit: package.json
+[33mce99502[m HEAD@{18}: commit: README.md
+[33m1b8e447[m HEAD@{19}: commit: homepage
+[33ma9c1577[m HEAD@{20}: commit: homepage
+[33mb33c65f[m HEAD@{21}: reset: moving to HEAD
+[33mb33c65f[m HEAD@{22}: commit: layout
+[33m5104bd0[m HEAD@{23}: reset: moving to HEAD
+[33m5104bd0[m HEAD@{24}: commit: con imagenes
+[33m0c0f2c8[m HEAD@{25}: Branch: renamed refs/heads/master to refs/heads/main
+[33m0c0f2c8[m HEAD@{27}: commit (initial): primer commit
