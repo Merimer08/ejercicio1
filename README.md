@@ -57,3 +57,34 @@ en theme editas el tema del ejercicio
 ![alt text](documentacion/imgb2.png)
 - dashboard.blade.php
 -  welcome.blade.php
+
+
+## Carpeta database
+
+
+1º Migraciones:
+    - Crear y modificar tablas-
+        Necesitra estar en un gestion de base de datos.
+
+        Creamos una maquina de doocker, que sera el gestor de la base de datos.(SERVIDOR)
+
+    ### Docker-compose.yaml --> altura general
+         Crearemos dos contenedores o servicios relacion 1:1
+         - mysql 
+            - el puerto inicial donde entra y el segundo a donde reconduzco
+            - restart always si se cae el serviio regresa
+            -enviroment para personalizar la base de datos
+                - encerrar entre llaves por si tiene otro caracter
+         -phpmyadmin
+            - identificador de la otra maquina
+en env configuramos el port
+![alt text](documentacion/imagd.png)
+-
+![alt text](documentacion/imagd1.png)
+-
+![alt text](documentacion/imagd2.png) importante quitar de env las #
+
+Y para hacerlo funcionar docker compose up -d
+ 
+2º factorias--> clases de larabel que me permiten fabricar valoores
+3º Ider clases de laravel que me permite llamar a latabla que me permite gestionar los datos
