@@ -47,3 +47,13 @@ en theme editas el tema del ejercicio
 ![alt text](documentacion/image-5.png)
 
 ![alt text](documentacion/image-4.png)
+
+
+## Delete archivos
+### view carpeta profile
+- carpeta completa profile
+![alt text](documentacion/imgb1.png)
+- carpeta completalayouts
+![alt text](documentacion/imgb2.png)
+- dashboard.blade.php
+-  welcome.blade.php
