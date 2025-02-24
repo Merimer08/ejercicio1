@@ -103,22 +103,22 @@ http://localhost:8100/index.php?route=/
 
 alumno alumno
 - php artisan migrate --> importante el mysql tiene que estr en minuscula
-![alt text](image.png)
+![alt text](documentacion/imagefab.png)
 - php artisan make:migration AlumnoMigration
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](documentacion/imagefab-1.png)
+![alt text](documentacion/imagefab-2.png)
 
 ## añadir base de datos
 - a traves de $schema 
-![alt text](image-3.png)
+![alt text](documentacion/imagefab-3.png)
 ~$ table ->id hace referencia  a 'alumnos
 ~ $ table -> timestamps -> created -at: fecha de creación
                         -> updated -at: ultima vez modificado
                         -> para auditoriacreate
-![alt text](image-4.png)
+![alt text](documentacion/imagefab-4.png)
 
 ### fabricar valores -- factory
-![alt text](image-5.png)
+![alt text](documentacion/imagefab-5.png)
 
 Un Factory es una clase que define cómo crear datos de prueba (fake data) para un modelo. Es muy útil para:
 
@@ -134,4 +134,4 @@ La relación entre ambos es que el Factory necesita el Modelo para crear instanc
 - se necesita al ser una clase para interactuar en una base de datos concreto
 
 ## Actualizar las bases de datos
-![alt text](image-6.png)
+![alt text](documentacion/imagefab-6.png)
