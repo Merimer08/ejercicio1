@@ -124,3 +124,6 @@ alumno alumno
 
 ### modelo
 - se necesita al ser una clase para interactuar en una base de datos concreto
+
+Actualizar las bases de datos
+![alt text](image-6.png)
