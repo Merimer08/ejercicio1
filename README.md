@@ -120,10 +120,18 @@ alumno alumno
 ### fabricar valores -- factory
 ![alt text](image-5.png)
 
+Un Factory es una clase que define cómo crear datos de prueba (fake data) para un modelo. Es muy útil para:
+
+Testing
+Seeding (poblar la base de datos con datos de ejemplo)
+Desarrollo local
+
 ### fabricar coger los valores y meterlos en la base de datos--sider
+
+La relación entre ambos es que el Factory necesita el Modelo para crear instancias de datos, y el Modelo necesita el trait HasFactory para poder usar el Factory.
 
 ### modelo
 - se necesita al ser una clase para interactuar en una base de datos concreto
 
-Actualizar las bases de datos
+## Actualizar las bases de datos
 ![alt text](image-6.png)
