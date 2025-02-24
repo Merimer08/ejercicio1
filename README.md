@@ -96,3 +96,31 @@ Y para hacerlo funcionar docker compose up -d
  - Meter en gitgnore mysql y php artisan migrate
 2º factorias--> clases de larabel que me permiten fabricar valoores
 3º Ider clases de laravel que me permite llamar a latabla que me permite gestionar los datos
+
+
+## el local host
+http://localhost:8100/index.php?route=/
+
+alumno alumno
+- php artisan migrate --> importante el mysql tiene que estr en minuscula
+![alt text](image.png)
+- php artisan make:migration AlumnoMigration
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+## añadir base de datos
+- a traves de $schema 
+![alt text](image-3.png)
+~$ table ->id hace referencia  a 'alumnos
+~ $ table -> timestamps -> created -at: fecha de creación
+                        -> updated -at: ultima vez modificado
+                        -> para auditoriacreate
+![alt text](image-4.png)
+
+### fabricar valores -- factory
+![alt text](image-5.png)
+
+### fabricar coger los valores y meterlos en la base de datos--sider
+
+### modelo
+- se necesita al ser una clase para interactuar en una base de datos concreto

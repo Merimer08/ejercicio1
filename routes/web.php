@@ -8,7 +8,7 @@ Route::get('/', function () {
 })->name("main");
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('main');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
