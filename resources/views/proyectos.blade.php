@@ -11,7 +11,7 @@
                         <th class="py-3 px-4 text-left">Fecha Inicio</th>
                         <th class="py-3 px-4 text-left">Fecha Fin</th>
                         <th class="py-3 px-4 text-left">Profesor</th>
-                        <th class="py-3 px-4 text-left">Asignatura</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +22,7 @@
                             <td class="py-2 px-4">{{ $proyecto->fecha_inicio }}</td>
                             <td class="py-2 px-4">{{ $proyecto->fecha_fin }}</td>
                             <td class="py-2 px-4">{{ $proyecto->profesor->nombre }} {{ $proyecto->profesor->apellido }}</td>
-                            <td class="py-2 px-4">{{ $proyecto->profesor->asignatura }}</td>
+                           
                         </tr>
                     @endforeach
                 </tbody>

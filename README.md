@@ -136,3 +136,6 @@ La relación entre ambos es que el Factory necesita el Modelo para crear instanc
 
 # Actualizar las bases de datos
 ![alt text](documentacion/imagefab-6.png)
+
+## Migraciones 
+- php artisan migrate-->

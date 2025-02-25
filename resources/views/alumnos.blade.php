@@ -19,6 +19,7 @@
                             <td class="py-2 px-4">{{ $alumno->apellido }}</td>
                             <td class="py-2 px-4">{{ $alumno->email }}</td>
                             <td class="py-2 px-4">{{ $alumno->telefono }}</td>
+                            
                         </tr>
                     @endforeach
                 </tbody>

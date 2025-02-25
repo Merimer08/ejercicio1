@@ -12,7 +12,7 @@
 <x-layouts.header />
 <x-layouts.nav />
 
-<main class="bg-main h-65v mt-10 mb-20" >
+<main class="bg-main h-75v mt-10 " >
  
     {{$slot}}
 </main>

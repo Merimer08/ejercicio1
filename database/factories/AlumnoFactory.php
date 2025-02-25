@@ -22,9 +22,7 @@ class AlumnoFactory extends Factory
             'edad' => $this->faker->numberBetween(18, 30),
             'direccion' => $this->faker->address(),
             'email' => $this->faker->unique()->safeEmail(),
-            'asignatura_id' => function() {
-                return \App\Models\Asignatura::inRandomOrder()->first()->id;
-            },
+            
             'telefono' => $this->faker->numerify('6########') // Genera números que empiezan por 6 seguidos de 8 dígitos aleatorios
         ];
     }
