@@ -14,6 +14,13 @@ class Alumno extends Model
         'apellido',
         'edad',
         'direccion',
-        'email'
+        'email',
+        'asignatura_id',
     ];
+    // Relación de un alumno con una asignatura
+    public function asignatura()
+    {
+        return $this->belongsTo(Asignatura::class);
+    }
+
 }

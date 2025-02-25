@@ -23,9 +23,11 @@ class ProyectoFactory extends Factory
             'descripcion' => $this->faker->sentence(),
             'fecha_inicio' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'fecha_fin' => $this->faker->dateTimeBetween('now', '+1 year'),
-            'profesor_id' => Profesor::factory(),   
+            'profesor_id' => function() {
+                return Profesor::inRandomOrder()->first()->id;
+            },
             'asignatura_id' => function() {
-                return \App\Models\Asignatura::inRandomOrder()->first()->id;
+                return Asignatura::inRandomOrder()->first()->id;
             },
         ];
     }

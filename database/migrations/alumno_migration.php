@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('direccion');
             $table->string('email')->unique();
             $table->string('telefono');
+            $table->foreignId('asignatura_id')->constrained('asignaturas')->onDelete('cascade');
             $table->timestamps();
         });
     }

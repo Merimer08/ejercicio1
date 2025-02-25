@@ -18,4 +18,14 @@ class Asignatura extends Model
     {
         return $this->hasMany(Profesor::class);
     }
+
+    public function proyectos()
+    {
+        return $this->hasMany(Proyecto::class);
+    }   
+
+    public function alumnos()
+    {
+        return $this->hasMany(Alumno::class);
+    }   
 }

@@ -21,9 +21,14 @@ class Proyecto extends Model
         'fecha_inicio' => 'date',
         'fecha_fin' => 'date'
     ];
-
-    public function profesor()
+    public function alumnos()
     {
-        return $this->belongsTo(Profesor::class);
+        return $this->hasMany(Alumno::class);
     }
+
+    public function asignatura()
+    {
+        return $this->belongsTo(Asignatura::class);
+    }
+ 
 }
