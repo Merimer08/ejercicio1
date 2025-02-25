@@ -134,6 +134,22 @@ La relación entre ambos es que el Factory necesita el Modelo para crear instanc
 ### modelo
 - se necesita al ser una clase para interactuar en una base de datos concreto
 
+# Ver rutas
+- php artisan route:list --name="alumno"
+![alt text](image.png)
+
+- Route::get(): Define rutas específicas, generalmente para una sola acción o método (como index(), show(), etc.), y se utiliza cuando necesitas un control preciso sobre las rutas.
+- Route::resource(): Genera automáticamente rutas RESTful para realizar las operaciones CRUD completas (indexar, mostrar, crear, editar, actualizar, eliminar) en el recurso (en este caso, alumnos).
+
+![alt text](image-1.png)
+Route::resource() se usa para generar automáticamente un conjunto de rutas RESTful para un recurso. Estas rutas cubren todas las operaciones CRUD estándar (Crear, Leer, Actualizar, Eliminar), como se espera en una arquitectura RESTful.
+
+Cuando usas Route::resource(), Laravel crea múltiples rutas para el mismo controlador con métodos específicos para cada operación.
+![alt text](image-2.png)
+
+Route::get() se usa para definir rutas específicas que manejan solicitudes HTTP GET en una URL determinada. La ruta get está asociada con una acción o función, y se puede utilizar para manejar un solo tipo de solicitud (en este caso, solicitudes GET).
+
+
 # Actualizar las bases de datos
 ![alt text](documentacion/imagefab-6.png)
 
