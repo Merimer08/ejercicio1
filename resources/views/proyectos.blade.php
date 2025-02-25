@@ -8,8 +8,8 @@
                     <tr>
                         <th class="py-3 px-4 text-left">Nombre</th>
                         <th class="py-3 px-4 text-left">Descripcion</th>
-                        <th class="py-3 px-4 text-left">Fecha Inicio</th>
-                        <th class="py-3 px-4 text-left">Fecha Fin</th>
+                        <th class="py-3 px-4 text-left">Duración</th>
+                        <th class="py-3 px-4 text-left">Complejidad</th>
                         <th class="py-3 px-4 text-left">Profesor</th>
                       
                     </tr>
@@ -19,8 +19,8 @@
                         <tr class="border-b hover:bg-gray-50">
                             <td class="py-2 px-4">{{ $proyecto->nombre }}</td>
                             <td class="py-2 px-4">{{ $proyecto->descripcion }}</td>
-                            <td class="py-2 px-4">{{ $proyecto->fecha_inicio }}</td>
-                            <td class="py-2 px-4">{{ $proyecto->fecha_fin }}</td>
+                            <td class="py-2 px-4">{{ $proyecto->horas }}</td>
+                            <td class="py-2 px-4">{{ $proyecto->complejidad }}</td>
                             <td class="py-2 px-4">{{ $proyecto->profesor->nombre }} {{ $proyecto->profesor->apellido }}</td>
                            
                         </tr>

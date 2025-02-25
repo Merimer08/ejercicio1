@@ -12,10 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+           $table->string('horas');
+           $table->enum("complejidad",["Alta","Media","Baja"]);
             $table->foreignId('profesor_id')->constrained('profesors')->onDelete('cascade');
-            $table->foreignId('asignatura_id')->constrained('asignaturas')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

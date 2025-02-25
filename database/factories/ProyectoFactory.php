@@ -21,12 +21,10 @@ class ProyectoFactory extends Factory
         return [
             'nombre' => $this->faker->word(),
             'descripcion' => $this->faker->sentence(),
-            'fecha_inicio' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'fecha_fin' => $this->faker->dateTimeBetween('now', '+1 year'),
+            "horas" => $this->faker->randomNumber(2),
+            "complejidad" => collect(["Alta","Media","Baja"])->random(),/* esto es cojer array a coleccion en JS */
             'profesor_id' => Profesor::factory(),   
-            'asignatura_id' => function() {
-                return \App\Models\Asignatura::inRandomOrder()->first()->id;
-            },
+            
         ];
     }
 }

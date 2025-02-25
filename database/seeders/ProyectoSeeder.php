@@ -12,7 +12,7 @@ class ProyectoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     */
+     */ 
     public function run(): void
     {
         Proyecto::factory(10)->create();
