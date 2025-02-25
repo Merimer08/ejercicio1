@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Alumno>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Profesor>
  */
-class AlumnoFactory extends Factory
+class ProfesorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,13 +19,13 @@ class AlumnoFactory extends Factory
         return [
             'nombre' => $this->faker->firstName(),
             'apellido' => $this->faker->lastName(),
-            'edad' => $this->faker->numberBetween(18, 30),
-            'direccion' => $this->faker->address(),
-            'email' => $this->faker->unique()->safeEmail(),
             'asignatura_id' => function() {
                 return \App\Models\Asignatura::inRandomOrder()->first()->id;
             },
-            'telefono' => $this->faker->numerify('6########') // Genera números que empiezan por 6 seguidos de 8 dígitos aleatorios
+            'email' => $this->faker->unique()->safeEmail(),
+            'telefono' => $this->faker->numerify('6########'), // Genera números que empiezan por 6 seguidos de 8 dígitos aleatorios
+            'aula' => $this->faker->numberBetween(1, 20),   
         ];
     }
 }
+

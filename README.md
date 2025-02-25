@@ -111,6 +111,7 @@ alumno alumno
 ## añadir base de datos
 - a traves de $schema 
 ![alt text](documentacion/imagefab-3.png)
+
 ~$ table ->id hace referencia  a 'alumnos
 ~ $ table -> timestamps -> created -at: fecha de creación
                         -> updated -at: ultima vez modificado
@@ -133,5 +134,5 @@ La relación entre ambos es que el Factory necesita el Modelo para crear instanc
 ### modelo
 - se necesita al ser una clase para interactuar en una base de datos concreto
 
-## Actualizar las bases de datos
+# Actualizar las bases de datos
 ![alt text](documentacion/imagefab-6.png)

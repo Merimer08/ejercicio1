@@ -13,7 +13,8 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        //
+        $alumnos = Alumno::all();
+        return view('alumnos', ['alumnos' => $alumnos]);
     }
 
     /**

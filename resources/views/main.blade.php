@@ -9,7 +9,7 @@
                 <div class="card-body text-center">
                     <h1 class="mb-5 text-5xl font-bold">Bienvenido</h1>
                     <p class="mb-5">
-                        Para acceder a la información de los alumnos, inicia sesión en la plataforma.
+                        Para acceder, inicia sesión en la plataforma.
                     </p>
                     <a href="{{ route('login') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none">Iniciar Sesión</a>
                 </div>
@@ -22,16 +22,21 @@
         <div class="flex justify-center items-center min-h-screen">
             <div class="card w-96 bg-white shadow-xl rounded-lg">
                 <div class="card-body text-center">
-                    <h2 class="mb-5 text-3xl font-bold justify-center card-title">Ver Alumnos</h2>
-                    <p>Accede a la lista de alumnos disponibles.</p>
+                    <h2 class="mb-5 text-3xl font-bold justify-center card-title">Ver Infromacion</h2>
+                    <p class="mb-4">Accede a las listas.</p>
                     <div class="card-actions justify-center">
-                    "<a href ="{{ route('alumnos') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none">Ver Alumnos</a> 
+                    <a href ="{{ route('alumnos') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none"> Alumnos</a> 
+
+                    <a href ="{{ route('profesores') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none"> Profesores</a> 
+                    
+                    <a href ="{{ route('proyectos') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none">Proyectos</a> 
                     </div>
                 </div>
             </div>
         </div>
     @endauth
 
+</div>
 </div>
 
 </x-layouts.layout>
