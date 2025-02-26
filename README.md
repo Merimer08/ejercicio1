@@ -5,6 +5,7 @@
 - php artisan migrate --> Para migrarlo
 - npm run dev --> para activarlo (Siempre activarlo)
 - php artisan serve --> para sacar la ID donde ver el trabajo actual
+- docker compose up -d --> Una vez implementado la base de datos, siempre hay que levantar el docker
 
 ## Laravel trabajo iniciar
 
@@ -115,7 +116,8 @@ alumno alumno
 ~$ table ->id hace referencia  a 'alumnos
 ~ $ table -> timestamps -> created -at: fecha de creación
                         -> updated -at: ultima vez modificado
-                        -> para auditoriacreate
+                        -> para auditorias create
+    Se crea por defecto en laravel y sirve para auditorias
 ![alt text](documentacion/imagefab-4.png)
 
 ### fabricar valores -- factory
@@ -136,16 +138,16 @@ La relación entre ambos es que el Factory necesita el Modelo para crear instanc
 
 # Ver rutas
 - php artisan route:list --name="alumno"
-![alt text](image.png)
+![alt text](documentacion/ruta.png)
 
 - Route::get(): Define rutas específicas, generalmente para una sola acción o método (como index(), show(), etc.), y se utiliza cuando necesitas un control preciso sobre las rutas.
 - Route::resource(): Genera automáticamente rutas RESTful para realizar las operaciones CRUD completas (indexar, mostrar, crear, editar, actualizar, eliminar) en el recurso (en este caso, alumnos).
 
-![alt text](image-1.png)
-Route::resource() se usa para generar automáticamente un conjunto de rutas RESTful para un recurso. Estas rutas cubren todas las operaciones CRUD estándar (Crear, Leer, Actualizar, Eliminar), como se espera en una arquitectura RESTful.
+![alt text](documentacion/ruta-1.png)
+**Route::resource()** se usa para generar automáticamente un conjunto de rutas RESTful para un recurso. Estas rutas cubren todas las operaciones CRUD estándar (Crear, Leer, Actualizar, Eliminar), como se espera en una arquitectura RESTful.
 
 Cuando usas Route::resource(), Laravel crea múltiples rutas para el mismo controlador con métodos específicos para cada operación.
-![alt text](image-2.png)
+![alt text](documentacion/ruta-2.png)
 
 Route::get() se usa para definir rutas específicas que manejan solicitudes HTTP GET en una URL determinada. La ruta get está asociada con una acción o función, y se puede utilizar para manejar un solo tipo de solicitud (en este caso, solicitudes GET).
 

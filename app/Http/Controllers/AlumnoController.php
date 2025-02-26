@@ -22,7 +22,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view("alumno.create"); //Retorrna la vista del formulario
     }
 
     /**
@@ -30,7 +30,19 @@ class AlumnoController extends Controller
      */
     public function store(StoreAlumnoRequest $request)
     {
-        //
+        // Validar los datos del formulario
+        $request->validate([
+            'nombre' => 'required |string | max:255', /* requiered es un campo obligatorio */
+            'apellido' => 'required |string | max:255',
+            'email' => 'required |email | unique:alumnos',
+            'telefono' => 'nullable |string | max:255',
+        ]);
+        // Crear un nuevo alumno
+    Alumno::create($request->all());
+
+    // Redirigir con mensaje de éxito
+    return redirect()->route('alumnos.index')->with('success', 'Alumno creado exitosamente.');
+
     }
 
     /**
