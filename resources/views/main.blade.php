@@ -25,7 +25,7 @@
                     <h2 class="mb-5 text-3xl font-bold justify-center card-title">Ver Infromacion</h2>
                     <p class="mb-4">Accede a las listas.</p>
                     <div class="card-actions justify-center">
-                    <a href ="{{ route('alumnos') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none"> Alumnos</a> 
+                    <a href ="{{ route('alumnos.index') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none"> Alumnos</a> 
 
                     <a href ="{{ route('profesores') }}" class="btn bg-orange-500 text-white hover:bg-orange-400 border-none"> Profesores</a> 
                     

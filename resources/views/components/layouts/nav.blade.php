@@ -2,7 +2,7 @@
  <a href ="{{ route('about') }}" class="btn btn-outline text-black hover:bg-orange-300 hover:text-black">About</a>
  <a href ="{{ route('noticias') }}" class="btn btn-outline text-black hover:bg-orange-300 hover:text-black">Noticias</a>
  @auth
- <a href ="{{ route('alumnos') }}" class="btn btn-outline text-black hover:bg-orange-300 hover:text-black">Alumnos</a> 
+ <a href ="{{ route('alumnos.index') }}" class="btn btn-outline text-black hover:bg-orange-300 hover:text-black">Alumnos</a> 
  <a href ="{{ route('profesores') }}" class="btn btn-outline text-black hover:bg-orange-300 hover:text-black">Profesores</a> 
  <a href ="{{ route('proyectos') }}" class="btn btn-outline text-black hover:bg-orange-300 hover:text-black">Proyectos</a> 
  @endauth

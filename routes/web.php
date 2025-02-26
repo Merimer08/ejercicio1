@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlumnoController;
 
 Route::get('/', function () {
     return view('main');
@@ -22,12 +23,10 @@ Route::middleware('auth')->group(function () {
 
 Route::view("About", "about")->name("about");
 Route::view("noticias", "noticias")->name("noticias");
-Route::resource('alumnos', \App\Http\Controllers\AlumnoController::class);
 
 
-Route::get('Alumnos', [\App\Http\Controllers\AlumnoController::class, 'index'])->name('alumnos');
 
-//Route::resource('alumnos', \App\Http\Controllers\AlumnoController::class);
+Route::resource('alumnos', AlumnoController::class);/* Metida el use arriba relevante */
 
 
 Route::get("Profesores", [\App\Http\Controllers\ProfesorController::class, 'index'])->name("profesores");
