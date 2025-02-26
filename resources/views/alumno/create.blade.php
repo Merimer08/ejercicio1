@@ -1,7 +1,7 @@
 <x-layouts.layout>
     <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 class="text-2xl font-bold mb-4">Crear Alumno</h1>
-
+<!-- Es el tocken CSRF que envia correctamente el formulario -->
         <form action="{{ route('alumnos.store') }}" method="POST">
             @csrf
 
@@ -16,6 +16,11 @@
             </div>
 
             <div class="mb-4">
+                <label class="label">Edad</label>
+                <input type="text" name="edad" class="input input-bordered w-full" required>
+            </div>
+
+            <div class="mb-4">
                 <label class="label">Email</label>
                 <input type="email" name="email" class="input input-bordered w-full" required>
             </div>
@@ -24,6 +29,13 @@
                 <label class="label">Teléfono</label>
                 <input type="text" name="telefono" class="input input-bordered w-full">
             </div>
+
+            <div class="mb-4">
+                <label class="label">Dirección</label>
+                <input type="text" name="direccion" class="input input-bordered w-full" required>
+            </div>
+
+           
 
             <button type="submit" class="btn bg-green-600 text-white w-full">Guardar Alumno</button>
         </form>

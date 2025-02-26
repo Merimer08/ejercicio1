@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAlumnoRequest;
 use App\Http\Requests\UpdateAlumnoRequest;
+use Illuminate\Http\Request;
+
 use App\Models\Alumno;
 
 class AlumnoController extends Controller
@@ -27,23 +29,32 @@ class AlumnoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */
-    public function store(StoreAlumnoRequest $request)
-    {
-        // Validar los datos del formulario
-        $request->validate([
-            'nombre' => 'required |string | max:255', /* requiered es un campo obligatorio */
-            'apellido' => 'required |string | max:255',
-            'email' => 'required |email | unique:alumnos',
-            'telefono' => 'nullable |string | max:255',
-        ]);
-        // Crear un nuevo alumno
-    Alumno::create($request->all());
+     */public function store(Request $request)
+{
+    $request->validate([
+        'nombre' => 'required|string|max:255',
+        'apellido' => 'required|string|max:255',
+        'email' => 'required|email|unique:alumnos,email',
+        'telefono' => 'nullable|string|max:15', // Permitir que teléfono sea nulo o un valor válido
+        
+        'edad' => 'required|integer|min:1', // Validación de edad'=> ',
+        'direccion' => 'required|string|max:255', // Validación de dirección
+    
+    ]);
 
-    // Redirigir con mensaje de éxito
-    return redirect()->route('alumnos.index')->with('success', 'Alumno creado exitosamente.');
+    Alumno::create([
+        'nombre' => $request->nombre,
+        'apellido' => $request->apellido,
+        'email' => $request->email,
+        'telefono' => $request->telefono,
+        'edad' => $request->edad, // Aquí se guarda el valor de la edad
+        'direccion' => $request->direccion,  // Aquí se guarda el valor de la dirección
+   
+   
+    ]);
 
-    }
+    return redirect()->route('alumnos.index')->with('success', 'Alumno creado con éxito');
+}
 
     /**
      * Display the specified resource.

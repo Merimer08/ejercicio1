@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('edad');
             $table->text('direccion');
             $table->string('email')->unique();
-            $table->string('telefono');
+            $table->string('telefono')->nullable(); // Esto permite que la columna 'telefono' sea NULL;
             $table->timestamps();
         });
     }
@@ -31,3 +31,10 @@ return new class extends Migration
         Schema::dropIfExists('alumnos');
     }
 };
+/* public function down()
+{
+    Schema::table('alumnos', function (Blueprint $table) {
+        $table->string('telefono')->nullable(false)->change(); // Si necesitas revertir la migración
+    });
+}
+     */

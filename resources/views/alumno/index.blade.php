@@ -2,6 +2,12 @@
     <div class="min-h-full flex flex-col justify-center items-center p-6">
         <h1 class="text-4xl text-green-700 mb-6">Listado de alumnos</h1>
         
+<!-- 
+        @if(session('success'))
+    <div class="bg-green-500 text-white p-4 mb-4 rounded-md">
+        {{ session('success') }}
+    </div>
+@endif --><!-- NOSE LO QUE HACE ESTO -->
         <div class="w-full max-w-4xl overflow-y-auto">
     <table class="min-w-full bg-white shadow-md rounded-lg"> <!-- table pin rowsas genera el deslizar pero nose donde -->
                 <thead class="bg-green-600 text-white">
