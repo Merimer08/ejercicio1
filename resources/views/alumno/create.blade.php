@@ -12,17 +12,17 @@
 
             <div class="mb-4">
                 <label class="label">Apellido</label>
-                <input type="text" name="apellido" class="input input-bordered w-full" required>
+                <input type="text" name="apellido" class="input input-bordered w-full" >
             </div>
 
             <div class="mb-4">
                 <label class="label">Edad</label>
-                <input type="text" name="edad" class="input input-bordered w-full" required>
+                <input type="text" name="edad" class="input input-bordered w-full" >
             </div>
 
             <div class="mb-4">
                 <label class="label">Email</label>
-                <input type="email" name="email" class="input input-bordered w-full" required>
+                <input type="email" name="email" class="input input-bordered w-full" required> <!-- esto es un capmo obligatorio con  -->
             </div>
 
             <div class="mb-4">
@@ -32,7 +32,7 @@
 
             <div class="mb-4">
                 <label class="label">Dirección</label>
-                <input type="text" name="direccion" class="input input-bordered w-full" required>
+                <input type="text" name="direccion" class="input input-bordered w-full" >
             </div>
 
            

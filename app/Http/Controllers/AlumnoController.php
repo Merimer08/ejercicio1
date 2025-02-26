@@ -15,7 +15,7 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Alumno::all();
+        $alumnos = Alumno::all()/* ->sortBy('apellido') */;
         return view("alumno.index", ['alumnos' => $alumnos]);
     }
 
@@ -31,7 +31,18 @@ class AlumnoController extends Controller
      * Store a newly created resource in storage.
      */public function store(Request $request)
 {
-    $request->validate([
+    // validad
+    //regoger los datos MANUEL
+    
+    $datos = $request -> input ();/* esto es laravel */
+    
+    $alumno = new alumno ($datos);
+    $alumno->save();
+    return redirect(route("alumnos.index"))->with('success', 'Alumno creado con éxito');
+    // $nombre= &POST['nombre']
+
+    //guardar en la bd
+ /*     $request->validate([
         'nombre' => 'required|string|max:255',
         'apellido' => 'required|string|max:255',
         'email' => 'required|email|unique:alumnos,email',
@@ -54,8 +65,9 @@ class AlumnoController extends Controller
     ]);
 
     return redirect()->route('alumnos.index')->with('success', 'Alumno creado con éxito');
-}
-
+*/
+    }
+ 
     /**
      * Display the specified resource.
      */
@@ -75,7 +87,7 @@ class AlumnoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAlumnoRequest $request, Alumno $alumno)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -83,7 +95,7 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(Alumno $id)
     {
         //
     }

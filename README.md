@@ -157,3 +157,6 @@ Route::get() se usa para definir rutas específicas que manejan solicitudes HTTP
 
 ## Migraciones 
 - php artisan migrate--> CREA TABLAS
+
+
+![alt text](image.png)
