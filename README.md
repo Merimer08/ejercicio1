@@ -175,3 +175,26 @@ en public
 - en layaout.blade --> traspilar
 Tiene que ser un array. al ser 2 hay que hacerlo en array y ponerlo en [y las " entre medias]
 ![alt text](documentacion/imgsweet5.png)
+
+
+## Acceso a ficheros html
+-  para acceder a páginas html
+- ./resources/view
+- todas son extensiones **blade.php**
+- Puedo (debo) establecer carpetas para organizarlo
+- Si quiero acceder o referenciar una carpeta
+- > carpeta. nombre
+
+## Controladores
+- Estaán en app/http/controllers
+- El código php que quiero que se ejecute ante una solicitud de una ruta
+
+## Rutas
+- La ruta es la URL  que quiero que mi app tenga
+- Las rutas se establecen en ./routes/web.php
+- Se especifican con ROUTE::verbo ("url",...)
+- Para poner nombre o alias a la ruta Route:: verbo ("url", ...)-> name (alumnos.index)
+- para referenciar una ruta por su nombre uso la duncion route("nombre)
+- Las rutas pueden ser parametrizadas (Sobre todo haciendo un crud de un recurso):
+    * Una ruta parametrizada es  aquella que en la url hay un parámetro (valor que puede cambaiar), que http://alumnos/1 o http://alumnos/5, donde 1 y 5 son el parámetro
+- Cuando referencio una ruta pro su nombre con la función route, para pasar el parámetro 
