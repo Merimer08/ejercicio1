@@ -159,4 +159,19 @@ Route::get() se usa para definir rutas específicas que manejan solicitudes HTTP
 - php artisan migrate--> CREA TABLAS
 
 
-![alt text](image.png)
+![alt text](documentacion/imgsweet.png)
+
+
+## biblioteca, sweet aletr
+queda registrado en package.json
+
+![alt text](documentacion/imgsweet1.png)
+
+en public 
+![alt text](documentacion/imgsweet2.png)
+- import swal from 'sweetalert';
+![alt text](documentacion/imgsweet3.png)
+
+- en layaout.blade --> traspilar
+Tiene que ser un array. al ser 2 hay que hacerlo en array y ponerlo en [y las " entre medias]
+![alt text](documentacion/imgsweet5.png)

@@ -53,8 +53,9 @@
     
     <!-- Botón para Eliminar -->
     <form action="{{ route('alumnos.destroy', $alumno->id) }}" method="POST" 
+    id="formulario{{$alumno->id}}" 
     class="inline-block" 
-    onsubmit="return confirm('¿Estás seguro de que deseas eliminar este alumno?');">
+    onsubmit=event.preventDefault()>
     @method('DELETE')
         @csrf
         
@@ -69,4 +70,22 @@
             </table>
         </div>
     </div>
+    <script>
+        function confirmDelete(id) {
+            swal({
+                title: "Confirmar Borrado",
+                text: "¿Estas seguro de borrar el alumno?",
+                icon: "warning",
+                buttons: true
+
+            }). then((
+                fn (ok)=>{
+                    if(ok){
+                        const formulario = document.getElementById("formulario"+id);
+                        formulario.submit();
+                    }
+                }
+            ))
+            
+        }
 </x-layouts.layout>
