@@ -164,6 +164,7 @@ Route::get() se usa para definir rutas específicas que manejan solicitudes HTTP
 
 ## biblioteca, sweet aletr
 queda registrado en package.json
+#### ({{ $alumno->id }}, '{{ $alumno->nombre }}')">Eliminar</button>
 
 ![alt text](documentacion/imgsweet1.png)
 
