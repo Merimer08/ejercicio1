@@ -19,6 +19,10 @@ class AlumnoApiController extends Controller
      */
     public function store(Request $request)
     {
+        $datos = $request->input("data.attributes");
+        $alumno = new Alumno($datos);
+        $alumno->save();
+        return new AlumnoResource($alumno);
         //
     }
 
