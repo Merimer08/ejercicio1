@@ -29,6 +29,9 @@
                 <label class="label">Teléfono</label>
                 <input type="text" name="telefono" class="input input-bordered w-full" 
                 value="{{ old('telefono', $alumno->telefono) }}">
+                @error('telefono')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-4">

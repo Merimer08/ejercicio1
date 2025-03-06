@@ -1,4 +1,14 @@
 <x-layouts.layout>
+    @if ($errors->any())
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li class="text-red-500">{{ $error }}</li>
+
+        
+        @endforeach
+    </ul>
+    
+    @endif
     <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 class="text-2xl font-bold mb-4">Crear Alumno</h1>
 <!-- Es el tocken CSRF que envia correctamente el formulario -->
@@ -8,6 +18,9 @@
             <div class="mb-4">
                 <label class="label">Nombre</label>
                 <input type="text" name="nombre" class="input input-bordered w-full" required>
+                @error('nombre')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-4">
@@ -28,6 +41,9 @@
             <div class="mb-4">
                 <label class="label">Teléfono</label>
                 <input type="text" name="telefono" class="input input-bordered w-full">
+                @error('telefono')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-4">

@@ -161,6 +161,11 @@ Route::get() se usa para definir rutas específicas que manejan solicitudes HTTP
 
 ![alt text](documentacion/imgsweet.png)
 
+## Validar los datos del NUEVO Alumno en back
+Store Alumno request
+![alt text](image.png)
+
+
 
 ## biblioteca, sweet aletr
 queda registrado en package.json
