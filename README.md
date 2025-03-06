@@ -7,6 +7,12 @@
 - php artisan serve --> para sacar la ID donde ver el trabajo actual
 - docker compose up -d --> Una vez implementado la base de datos, siempre hay que levantar el docker
 
+- composer run dev --> hace el trabajo de los dos
+![alt text](documentacion/inicio.png)
+npm run dev
+php artisan serve
+
+
 ## Laravel trabajo iniciar
 
 ![alt text](documentacion/image.png)
@@ -204,3 +210,9 @@ Tiene que ser un array. al ser 2 hay que hacerlo en array y ponerlo en [y las " 
 - Las rutas pueden ser parametrizadas (Sobre todo haciendo un crud de un recurso):
     * Una ruta parametrizada es  aquella que en la url hay un parámetro (valor que puede cambaiar), que http://alumnos/1 o http://alumnos/5, donde 1 y 5 son el parámetro
 - Cuando referencio una ruta pro su nombre con la función route, para pasar el parámetro 
+
+
+# CONTRASEÑA DE USUARIO
+![alt text](documentacion/contraseña.png)
+
+esta sin hacer ni modificar
