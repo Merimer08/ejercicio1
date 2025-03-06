@@ -10,3 +10,7 @@ Route::get('/user', function (Request $request) {
 
 
 Route::resource("alumnos", AlumnoApiController::class);
+
+
+
+//Route::resource('alumnos', AlumnoController::class);/* Metida el use arriba relevante */

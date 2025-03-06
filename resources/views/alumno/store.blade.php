@@ -14,7 +14,7 @@
 
             <!-- Campo para el apellido -->
             <div class="mb-4">
-                <label class="label" for="apellido">Apellido</label>
+                <label class="label" for="apellido">Apellido</label>AlumnoApiControllerstore
                 <input type="text" name="apellido" id="apellido" class="input input-bordered w-full" required>
             </div>
 
