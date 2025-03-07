@@ -60,8 +60,10 @@ en theme editas el tema del ejercicio
 ### view carpeta profile
 - carpeta completa profile
 ![alt text](documentacion/imgb1.png)
+
 - carpeta completalayouts
 ![alt text](documentacion/imgb2.png)
+
 - dashboard.blade.php
 -  welcome.blade.php
 
@@ -84,6 +86,7 @@ en theme editas el tema del ejercicio
                 - encerrar entre llaves por si tiene otro caracter
          -phpmyadmin
             - identificador de la otra maquina
+
 en env configuramos el port
 ![alt text](documentacion/imagd.png)
 -
@@ -94,6 +97,7 @@ en env configuramos el port
 Y para hacerlo funcionar docker compose up -d
 
 ### limpieza de docker y de mysql
+
 ![alt text](documentacion/borrard.png)
 ![alt text](documentacion/borrard1.png)
 ![alt text](documentacion/borrard2.png)
@@ -116,14 +120,18 @@ alumno alumno
 ![alt text](documentacion/imagefab-2.png)
 
 ## añadir base de datos
+
 - a traves de $schema 
+
 ![alt text](documentacion/imagefab-3.png)
 
-~$ table ->id hace referencia  a 'alumnos
-~ $ table -> timestamps -> created -at: fecha de creación
+### $ table ->id hace referencia  a 'alumnos
+### $ table -> timestamps -> created -at: fecha de creación
+
                         -> updated -at: ultima vez modificado
                         -> para auditorias create
-    Se crea por defecto en laravel y sirve para auditorias
+    Se crea por defecto en laravel y sirve para auditoria
+    s
 ![alt text](documentacion/imagefab-4.png)
 
 ### fabricar valores -- factory
@@ -150,6 +158,7 @@ La relación entre ambos es que el Factory necesita el Modelo para crear instanc
 - Route::resource(): Genera automáticamente rutas RESTful para realizar las operaciones CRUD completas (indexar, mostrar, crear, editar, actualizar, eliminar) en el recurso (en este caso, alumnos).
 
 ![alt text](documentacion/ruta-1.png)
+
 **Route::resource()** se usa para generar automáticamente un conjunto de rutas RESTful para un recurso. Estas rutas cubren todas las operaciones CRUD estándar (Crear, Leer, Actualizar, Eliminar), como se espera en una arquitectura RESTful.
 
 Cuando usas Route::resource(), Laravel crea múltiples rutas para el mismo controlador con métodos específicos para cada operación.
@@ -181,6 +190,7 @@ queda registrado en package.json
 
 en public 
 ![alt text](documentacion/imgsweet2.png)
+
 - import swal from 'sweetalert';
 ![alt text](documentacion/imgsweet3.png)
 
@@ -216,3 +226,20 @@ Tiene que ser un array. al ser 2 hay que hacerlo en array y ponerlo en [y las " 
 ![alt text](documentacion/contraseña.png)
 
 esta sin hacer ni modificar
+
+
+# API 
+- interface que te permite utilizar un aplicacion. Para ofrecer datos y que el usuario lo consima . Utilizamos Postman.. con especificaciones
+
+- No se instala se crea. pero pudes poner crear un fichero con una libreria de larabel php artisan api install.
+.sofware intermedio midelware
+
+## Swagger // vendor
+ 
+ - composer require darkaonline/l5-swagger //descarga  la libreria
+
+ - php artisan vendor:publish --provider="L5Swagger\\L5SwaggerServiceProvider" // intala y pone disponible la libreria
+
+![alt text](documentacion/Swagger.png)
+
+-  php artisan l5-swagger:generate

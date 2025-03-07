@@ -4,10 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * @OA\Info(
+ *     title="API para consultar alumnos",
+ *     version="1.0",
+ *     description="API para interactuar con la base de datos de alumnos.",
+ *     @OA\Contact(
+ *         email="mariamalospelos@gmail.com"
+ *     ),
+ *     @OA\License(
+ *         name="MIT",
+ *         url="https://opensource.org/licenses/MIT"
+ *     )
+ * )
+ */
 class AlumnoApiController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostrar lista de alumnos.
+     *
+     * @OA\Get(
+     *     path="/api/alumnos",
+     *     summary="Obtener lista de alumnos",
+     *     @OA\Response(response=200, description="Lista de alumnos obtenida correctamente")
+     * )
      */
     public function index()
     {
@@ -15,38 +35,7 @@ class AlumnoApiController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $datos = $request->input("data.attributes");
-        $alumno = new Alumno($datos);
-        $alumno->save();
-        return new AlumnoResource($alumno);
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-}
+     * Crear un nuevo alumno.
+     *
+     * @OA\Post(
+     *     path="
