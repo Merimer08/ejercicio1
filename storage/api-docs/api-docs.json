@@ -1,0 +1,38 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API para consultar alumnos de mi centro",
+        "description": "Esta api permite interactuar con los alumnos de bd del instituto",
+        "contact": {
+            "name": "Maria",
+            "email": "mariacasas@gmail.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/license/mit"
+        },
+        "version": "2.0.0"
+    },
+    "paths": {
+        "/api/alumnos": {
+            "get": {
+                "tags": [
+                    "Alumnos"
+                ],
+                "summary": "Obtener todos los alumnos",
+                "operationId": "getAllStudents",
+                "responses": {
+                    "200": {
+                        "description": "Éxito"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Alumnos",
+            "description": "Alumnos"
+        }
+    ]
+}

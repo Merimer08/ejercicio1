@@ -1,76 +1,81 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StoreAlumnoRequest;
+use App\Http\Resources\AlumnoCollection;
+use App\Http\Resources\AlumnoResource;
+use App\Models\Alumno;
 use Illuminate\Http\Request;
-
+use function Pest\Laravel\json;
 /**
  * @OA\Info(
- *     title="API para consultar alumnos",
- *     version="1.0",
- *     description="API para interactuar con la base de datos de alumnos.",
- *     @OA\Contact(
- *         email="mariamalospelos@gmail.com"
- *     ),
- *     @OA\License(
- *         name="MIT",
- *         url="https://opensource.org/licenses/MIT"
- *     )
+ *      title="API para consultar alumnos de mi centro",
+ *      version="2.0.0",
+ *      description="Esta api permite interactuar con los alumnos de bd del instituto",
+ *      @OA\Contact(
+ *          name="Maria",
+ *          email="mariacasas@gmail.com",
+ *      ),
+ *      @OA\License(
+ *          name="MIT",
+ *          url="https://opensource.org/license/mit",
+ *      )
  * )
  */
 class AlumnoApiController extends Controller
 {
     /**
-     * Mostrar lista de alumnos.
-     *
      * @OA\Get(
-     *     path="/api/alumnos",
-     *     summary="Obtener lista de alumnos",
-     *     @OA\Response(response=200, description="Lista de alumnos obtenida correctamente")
+     *      path="/api/alumnos",
+     *      operationId="getAllStudents",
+     *      tags={"Alumnos"},
+     *      summary="Obtener todos los alumnos",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Éxito",
+     *      )
      * )
      */
-    public function index()
+    public function index(Request $request)
     {
+        return new AlumnoCollection(Alumno::all());
         //
     }
-
     /**
-     * Crear un nuevo alumno.
-     *
-     * @OA\Post(
-     *     path="/api/alumnos",
-     *     summary="Crear un nuevo alumno",
-     *     @OA\RequestBody(
-     *         required=true,
-     *         @OA\JsonContent(
-     *             type="object",
-     *             @OA\Property(property="nombre", type="string", example="Juan Pérez"),
-     *             @OA\Property(property="edad", type="integer", example=20)
-     *         )
-     *     ),
-     *     @OA\Response(response=201, description="Alumno creado correctamente"),
-     *     @OA\Response(response=400, description="Error en la solicitud")
-     * )
+     * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAlumnoRequest $request)
     {
         $datos = $request->input("data.attributes");
         $alumno = new Alumno($datos);
         $alumno->save();
         return new AlumnoResource($alumno);
+        //
     }
-
     /**
-     * Mostrar un alumno específico.
-     *
-     * @OA\Get(
-     *     path="/api/alumnos/{id}",
-     *     summary="Obtener un alumno por ID",
-     *     @OA\Parameter(
-     *         name="id",
-     *         in="path",
-     *         required=true,
-     *         @OA\Schema(type="string")
-     *     ),
-     *     @OA\Response(response=200, description="Alumno obtenido correctamente"),
-     *     @OA\Respons
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}
+
+
+
+
+
+
