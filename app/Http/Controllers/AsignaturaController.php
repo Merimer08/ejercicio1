@@ -11,7 +11,7 @@ class AsignaturaController extends Controller
 {
     public function index()
     {
-        $asignaturas = Asignatura::with(['profesores', 'alumnos'])->get();
+        $asignaturas = Asignatura::with(['profesor', 'alumnos'])->get();
         return view('asignatura.index', compact('asignaturas'));
     }
 
@@ -24,29 +24,28 @@ class AsignaturaController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'codigo' => 'required|string|max:10|unique:asignaturas',
-            'descripcion' => 'required|string',
-            'creditos' => 'required|integer|min:1|max:20',
-            'alumnos' => 'array',
-            'alumnos.*' => 'exists:alumnos,id'
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'profesor_id' => 'required|exists:profesores,id',
+            'alumnos' => 'array|max:15'
         ]);
 
-        $asignatura = Asignatura::create($validatedData);
+        $asignatura = Asignatura::create($request->all());
 
         if ($request->has('alumnos')) {
             $asignatura->alumnos()->attach($request->alumnos);
         }
 
         return redirect()->route('asignaturas.index')
-            ->with('success', 'Asignatura creada con éxito');
+            ->with('success', 'Asignatura creada exitosamente.');
     }
 
     public function show(Asignatura $asignatura)
     {
-        $asignatura->load(['profesores', 'alumnos']);
-        return view('asignatura.show', compact('asignatura'));
+        // Obtener los alumnos que no están en esta asignatura
+        $alumnosDisponibles = Alumno::whereNotIn('id', $asignatura->alumnos->pluck('id'))->get();
+        return view('asignatura.show', compact('asignatura', 'alumnosDisponibles'));
     }
 
     public function edit(Asignatura $asignatura)
@@ -58,43 +57,47 @@ class AsignaturaController extends Controller
 
     public function update(Request $request, Asignatura $asignatura)
     {
-        $validatedData = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'codigo' => 'required|string|max:10|unique:asignaturas,codigo,' . $asignatura->id,
-            'descripcion' => 'required|string',
-            'creditos' => 'required|integer|min:1|max:20',
-            'alumnos' => 'array',
-            'alumnos.*' => 'exists:alumnos,id'
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'profesor_id' => 'required|exists:profesores,id',
+            'alumnos' => 'array|max:15'
         ]);
 
-        $asignatura->update($validatedData);
+        $asignatura->update($request->all());
 
         if ($request->has('alumnos')) {
             $asignatura->alumnos()->sync($request->alumnos);
         }
 
         return redirect()->route('asignaturas.index')
-            ->with('success', 'Asignatura actualizada con éxito');
+            ->with('success', 'Asignatura actualizada exitosamente.');
     }
 
     public function destroy(Asignatura $asignatura)
     {
-        $asignatura->alumnos()->detach();
         $asignatura->delete();
         return redirect()->route('asignaturas.index')
-            ->with('success', 'Asignatura eliminada con éxito');
+            ->with('success', 'Asignatura eliminada exitosamente.');
     }
 
-    public function asignarAlumnos(Request $request, Asignatura $asignatura)
+    public function addAlumno(Request $request, Asignatura $asignatura)
     {
         $request->validate([
-            'alumnos' => 'required|array',
-            'alumnos.*' => 'exists:alumnos,id'
+            'alumno_id' => 'required|exists:alumnos,id'
         ]);
 
-        $asignatura->alumnos()->sync($request->alumnos);
+        if ($asignatura->alumnos->count() >= $asignatura->max_alumnos) {
+            return back()->with('error', 'La asignatura ya ha alcanzado el máximo de alumnos permitidos.');
+        }
 
-        return redirect()->route('asignaturas.show', $asignatura)
-            ->with('success', 'Alumnos asignados con éxito');
+        $asignatura->alumnos()->attach($request->alumno_id);
+        return back()->with('success', 'Alumno añadido exitosamente.');
+    }
+
+    public function removeAlumno(Asignatura $asignatura, Alumno $alumno)
+    {
+        $asignatura->alumnos()->detach($alumno->id);
+        return back()->with('success', 'Alumno eliminado de la asignatura exitosamente.');
     }
 }

@@ -16,17 +16,21 @@ class Profesor extends Model
         'apellido',
         'email',
         'especialidad',
-        'telefono',
-        'asignatura_id'
+        'telefono'
     ];
-
-    public function asignatura()
-    {
-        return $this->belongsTo(Asignatura::class);
-    }
 
     public function proyectos()
     {
         return $this->hasMany(Proyecto::class);
+    }
+
+    public function asignaturas()
+    {
+        return $this->hasMany(Asignatura::class);
+    }
+
+    public function signatura()
+    {
+        return $this->hasOne(Signatura::class);
     }
 }

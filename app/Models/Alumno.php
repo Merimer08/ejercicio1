@@ -14,11 +14,17 @@ class Alumno extends Model
         'apellido',
         'edad',
         'direccion',
-        'email'
+        'email',
+        'fecha_nacimiento'
     ];
+
+    public function proyectos()
+    {
+        return $this->hasMany(Proyecto::class);
+    }
 
     public function asignaturas()
     {
-        return $this->belongsToMany(Asignatura::class, 'alumno_asignatura');
+        return $this->belongsToMany(Asignatura::class);
     }
 }

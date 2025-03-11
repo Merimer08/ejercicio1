@@ -3,68 +3,57 @@
 @section('content')
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-2xl mx-auto">
-            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <h1 class="text-2xl font-bold mb-6">Editar Asignatura</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Editar Asignatura</h1>
 
-                @if ($errors->any())
-                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+            @if ($errors->any())
+                <div class="alert alert-error mb-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-                <form action="{{ route('asignaturas.update', $asignatura) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="codigo">
-                            Código
+            <form action="{{ route('asignaturas.update', $asignatura) }}" method="POST" class="card bg-base-100 shadow-xl">
+                @csrf
+                @method('PUT')
+                <div class="card-body">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Nombre</span>
                         </label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('codigo') border-red-500 @enderror"
-                            id="codigo" type="text" name="codigo" value="{{ old('codigo', $asignatura->codigo) }}" required>
+                        <input type="text" name="nombre" class="input input-bordered"
+                            value="{{ old('nombre', $asignatura->nombre) }}" required>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">
-                            Nombre
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Descripción</span>
                         </label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('nombre') border-red-500 @enderror"
-                            id="nombre" type="text" name="nombre" value="{{ old('nombre', $asignatura->nombre) }}" required>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="descripcion">
-                            Descripción
-                        </label>
-                        <textarea
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('descripcion') border-red-500 @enderror"
-                            id="descripcion" name="descripcion" rows="3"
+                        <textarea name="descripcion" class="textarea textarea-bordered"
                             required>{{ old('descripcion', $asignatura->descripcion) }}</textarea>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="creditos">
-                            Créditos
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Profesor</span>
                         </label>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('creditos') border-red-500 @enderror"
-                            id="creditos" type="number" name="creditos" value="{{ old('creditos', $asignatura->creditos) }}"
-                            min="1" max="20" required>
+                        <select name="profesor_id" class="select select-bordered" required>
+                            <option value="">Selecciona un profesor</option>
+                            @foreach($profesores as $profesor)
+                                <option value="{{ $profesor->id }}" {{ old('profesor_id', $asignatura->profesor_id) == $profesor->id ? 'selected' : '' }}>
+                                    {{ $profesor->nombre }} {{ $profesor->apellido }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
 
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="alumnos">
-                            Alumnos
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Alumnos (Máximo 15)</span>
                         </label>
-                        <select
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="alumnos" name="alumnos[]" multiple>
+                        <select name="alumnos[]" class="select select-bordered" multiple>
                             @foreach($alumnos as $alumno)
                                 <option value="{{ $alumno->id }}" {{ in_array($alumno->id, old('alumnos', $asignatura->alumnos->pluck('id')->toArray())) ? 'selected' : '' }}>
                                     {{ $alumno->nombre }} {{ $alumno->apellido }}
@@ -73,19 +62,12 @@
                         </select>
                     </div>
 
-                    <div class="flex items-center justify-between">
-                        <button
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit">
-                            Actualizar Asignatura
-                        </button>
-                        <a href="{{ route('asignaturas.index') }}"
-                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Cancelar
-                        </a>
+                    <div class="form-control mt-6">
+                        <button type="submit" class="btn btn-primary">Actualizar Asignatura</button>
+                        <a href="{{ route('asignaturas.index') }}" class="btn btn-ghost mt-2">Cancelar</a>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

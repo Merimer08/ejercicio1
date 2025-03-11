@@ -249,3 +249,9 @@ esta sin hacer ni modificar
 -   php artisan l5-swagger:generate
 
 ![alt text](image.png)
+
+
+
+# NOTICIAS
+
+image.png

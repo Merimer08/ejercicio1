@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call([
-            AsignaturaSeeder::class,
             AlumnoSeeder::class,
             ProfesorSeeder::class,
-            ProyectoSeeder::class
+            ProyectoSeeder::class,
+            AsignaturaSeeder::class,
         ]);
 
     }

@@ -32,6 +32,56 @@
                 </div>
             </div>
 
+            <!-- Sección de Signatura -->
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-4">Signatura Digital</h2>
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        @if($profesor->signatura)
+                            <div class="flex items-center gap-4">
+                                @if($profesor->signatura->imagen_firma)
+                                    <img src="{{ asset('storage/' . $profesor->signatura->imagen_firma) }}" alt="Firma digital"
+                                        class="max-w-xs">
+                                @endif
+                                <p class="text-gray-600">{{ $profesor->signatura->descripcion ?? 'Sin descripción' }}</p>
+                            </div>
+                        @else
+                            <p class="text-gray-600">Este profesor aún no tiene una signatura digital registrada.</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Asignaturas -->
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-4">Asignaturas que Imparte</h2>
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Alumnos Inscritos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($profesor->asignaturas as $asignatura)
+                                <tr>
+                                    <td>
+                                        <a href="{{ route('asignaturas.show', $asignatura) }}"
+                                            class="text-blue-600 hover:text-blue-800">
+                                            {{ $asignatura->nombre }}
+                                        </a>
+                                    </td>
+                                    <td>{{ $asignatura->descripcion }}</td>
+                                    <td>{{ $asignatura->alumnos->count() }}/{{ $asignatura->max_alumnos }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="mt-6 flex gap-4">
                 <a href="{{ route('profesores.edit', $profesor) }}"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

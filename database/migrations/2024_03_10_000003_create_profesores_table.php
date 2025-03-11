@@ -7,18 +7,19 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('asignaturas', function (Blueprint $table) {
+        Schema::create('profesores', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo')->unique();
             $table->string('nombre');
-            $table->text('descripcion');
-            $table->integer('creditos');
+            $table->string('apellido');
+            $table->string('email')->unique();
+            $table->string('especialidad');
+            $table->string('telefono');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('asignaturas');
+        Schema::dropIfExists('profesores');
     }
 };

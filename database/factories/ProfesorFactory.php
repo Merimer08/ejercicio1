@@ -19,12 +19,9 @@ class ProfesorFactory extends Factory
         return [
             'nombre' => $this->faker->firstName(),
             'apellido' => $this->faker->lastName(),
-            'asignatura_id' => function() {
-                return \App\Models\Asignatura::inRandomOrder()->first()->id;
-            },
+            'especialidad' => $this->faker->randomElement(['Matemáticas', 'Ciencias', 'Tecnología', 'Humanidades', 'Idiomas']),
             'email' => $this->faker->unique()->safeEmail(),
-            'telefono' => $this->faker->numerify('6########'), // Genera números que empiezan por 6 seguidos de 8 dígitos aleatorios
-            'aula' => $this->faker->numberBetween(1, 20),   
+            'telefono' => $this->faker->numerify('6########') // Genera números que empiezan por 6 seguidos de 8 dígitos aleatorios
         ];
     }
 }

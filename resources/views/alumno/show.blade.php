@@ -32,6 +32,36 @@
                 </div>
             </div>
 
+            <!-- Sección de Asignaturas -->
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-4">Asignaturas Matriculadas</h2>
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Profesor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($alumno->asignaturas as $asignatura)
+                                <tr>
+                                    <td>
+                                        <a href="{{ route('asignaturas.show', $asignatura) }}"
+                                            class="text-blue-600 hover:text-blue-800">
+                                            {{ $asignatura->nombre }}
+                                        </a>
+                                    </td>
+                                    <td>{{ $asignatura->descripcion }}</td>
+                                    <td>{{ $asignatura->profesor->nombre }} {{ $asignatura->profesor->apellido }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="mt-6 flex gap-4">
                 <a href="{{ route('alumnos.edit', $alumno) }}"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

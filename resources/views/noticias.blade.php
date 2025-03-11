@@ -1,52 +1,38 @@
 <x-layouts.layout>
-    <div class="container mx-auto my-8">
-        <h1 class="text-3xl font-bold mb-6 text-center">Últimas Noticias</h1>
+    <div class="min-h-full flex flex-col justify-center items-center p-6">
+        <h1 class="text-4xl text-green-700 mb-6">Últimas Noticias</h1>
 
-           <!-- Navbar -->
-    <nav class="bg-gray-800 text-white p-4 flex justify-center space-x-4">
-        <a href="#" class="hover:text-blue-400">Inicio</a>
-        <a href="#" class="hover:text-blue-400">Natación</a>
-        <a href="#" class="hover:text-blue-400">Esgrima</a>
-        <a href="#" class="hover:text-blue-400">Snowboard</a>
-    </nav>
-    
-    <!-- Contenido Principal -->
-    <main class="flex-grow p-6 text-center">
-        <h1 class="text-4xl font-bold mb-6">Últimas Noticias</h1>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Noticia 1 -->
-            <div class="card bg-white shadow-xl">
-                <figure><img src="https://source.unsplash.com/400x250/?swimming" alt="Natación" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">Récord en Natación</h2>
-                    <p>Un nadador rompe un récord mundial en la última competencia.</p>
-                    <button class="btn btn-primary">Leer más</button>
-                </div>
+
+
+        <!-- Grid de Noticias -->
+        <div class="w-full max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @foreach($noticias as $noticia)
+                    <div
+                        class="bg-white border-2 border-green-200 shadow-lg rounded-lg overflow-hidden hover:border-orange-300 transition-all duration-300">
+                        <img src="{{ $noticia['imagen'] }}" alt="{{ $noticia['categoria'] }}"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h2 class="text-xl font-bold mb-2 text-green-600">{{ $noticia['titulo'] }}</h2>
+                            <p class="text-gray-700 mb-4">{{ $noticia['descripcion'] }}</p>
+                            <button
+                                class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded inline-block transition-colors duration-300">
+                                Leer más
+                            </button>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            
-            <!-- Noticia 2 -->
-            <div class="card bg-white shadow-xl">
-                <figure><img src="https://source.unsplash.com/400x250/?fencing" alt="Esgrima" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">Campeonato de Esgrima</h2>
-                    <p>La final del torneo de esgrima nos dejó un duelo inolvidable.</p>
-                    <button class="btn btn-primary">Leer más</button>
-                </div>
-            </div>
-            
-            <!-- Noticia 3 -->
-            <div class="card bg-white shadow-xl">
-                <figure><img src="https://source.unsplash.com/400x250/?snowboard" alt="Snowboard" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">Espectacular en Snowboard</h2>
-                    <p>Un atleta ejecuta una maniobra nunca antes vista en una competencia oficial.</p>
-                    <button class="btn btn-primary">Leer más</button>
-                </div>
+
+            <!-- Categorías -->
+            <div class="w-full max-w-6xl mb-8">
+                <nav class="bg-green-600 text-white p-4 rounded-lg flex justify-center space-x-8">
+                    <!-- Paginación -->
+                    <div class="mt-8 flex justify-center">
+                        {{ $noticias->links() }}
+                    </div>
+                </nav>
             </div>
         </div>
-    </main>
- 
-    
-</body>
-</x-layout.layout>
+    </div>
+</x-layouts.layout>

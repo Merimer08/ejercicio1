@@ -1,14 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-    <div class="container mx-auto px-4 py-8">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold">Listado de Profesores</h1>
-            <a href="{{ route('profesores.create') }}"
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                Nuevo Profesor
-            </a>
-        </div>
+<x-layouts.layout>
+    <div class="min-h-full flex flex-col justify-center items-center p-6">
+        <h1 class="text-4xl text-green-700 mb-6">Listado de Profesores</h1>
 
         @if(session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -16,46 +8,40 @@
             </div>
         @endif
 
-        <div class="bg-white shadow-md rounded my-6">
-            <table class="min-w-full table-auto">
-                <thead>
-                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Nombre</th>
-                        <th class="py-3 px-6 text-left">Apellido</th>
-                        <th class="py-3 px-6 text-left">Email</th>
-                        <th class="py-3 px-6 text-left">Especialidad</th>
-                        <th class="py-3 px-6 text-left">Teléfono</th>
-                        <th class="py-3 px-6 text-center">Acciones</th>
+        <div class="w-full max-w-7xl overflow-y-auto">
+            <table class="min-w-full bg-white shadow-md rounded-lg">
+                <thead class="bg-green-600 text-white">
+                    <tr>
+                        <th class="py-3 px-4 text-left">Nombre</th>
+                        <th class="py-3 px-4 text-left">Apellido</th>
+                        <th class="py-3 px-4 text-left">Email</th>
+                        <th class="py-3 px-4 text-left">Especialidad</th>
+                        <th class="py-3 px-4 text-left">Teléfono</th>
+                        <th class="py-3 px-4 text-center">Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
+                <tbody>
                     @foreach($profesores as $profesor)
-                        <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left">{{ $profesor->nombre }}</td>
-                            <td class="py-3 px-6 text-left">{{ $profesor->apellido }}</td>
-                            <td class="py-3 px-6 text-left">{{ $profesor->email }}</td>
-                            <td class="py-3 px-6 text-left">{{ $profesor->especialidad }}</td>
-                            <td class="py-3 px-6 text-left">{{ $profesor->telefono }}</td>
-                            <td class="py-3 px-6 text-center">
-                                <div class="flex item-center justify-center">
-                                    <a href="{{ route('profesores.show', $profesor) }}"
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded mx-1">
-                                        Ver
-                                    </a>
-                                    <a href="{{ route('profesores.edit', $profesor) }}"
-                                        class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-3 rounded mx-1">
-                                        Editar
-                                    </a>
-                                    <form action="{{ route('profesores.destroy', $profesor) }}" method="POST" class="inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded mx-1"
-                                            onclick="return confirm('¿Estás seguro de que deseas eliminar este profesor?')">
-                                            Eliminar
-                                        </button>
-                                    </form>
-                                </div>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="py-2 px-4">{{ $profesor->nombre }}</td>
+                            <td class="py-2 px-4">{{ $profesor->apellido }}</td>
+                            <td class="py-2 px-4">{{ $profesor->email }}</td>
+                            <td class="py-2 px-4">{{ $profesor->especialidad }}</td>
+                            <td class="py-2 px-4">{{ $profesor->telefono }}</td>
+                            <td class="py-2 px-4 text-center">
+                                <a href="{{ route('profesores.edit', $profesor) }}"
+                                    class="btn btn-sm bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 px-6 py-2 mr-2 transition-colors duration-300">Editar</a>
+
+                                <form action="{{ route('profesores.destroy', $profesor) }}" method="POST"
+                                    id="formulario{{$profesor->id}}" class="inline-block" onsubmit="event.preventDefault()">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="btn btn-sm bg-red-500 text-white rounded-lg hover:bg-red-600 px-6 py-2 transition-colors duration-300"
+                                        onclick="confirmDelete({{ $profesor->id }}, '{{ $profesor->nombre }}')">
+                                        Eliminar
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -63,4 +49,20 @@
             </table>
         </div>
     </div>
-@endsection
+
+    <script>
+        function confirmDelete(id, nombre) {
+            swal({
+                title: "Confirmar Borrado",
+                text: "¿Estás seguro de borrar el profesor " + nombre + " ?",
+                icon: "warning",
+                buttons: true
+            }).then(function (ok) {
+                if (ok) {
+                    const formulario = document.getElementById("formulario" + id);
+                    formulario.submit();
+                }
+            });
+        }
+    </script>
+</x-layouts.layout>

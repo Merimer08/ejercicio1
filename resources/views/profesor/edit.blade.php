@@ -1,10 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-2xl mx-auto">
-            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <h1 class="text-2xl font-bold mb-6">Editar Profesor</h1>
+<x-layouts.layout>
+    <div class="min-h-full flex flex-col justify-center items-center p-6">
+        <div class="w-full max-w-2xl">
+            <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+                <h1 class="text-4xl text-green-700 mb-6">Editar Profesor</h1>
 
                 @if ($errors->any())
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -16,7 +14,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('profesores.update', $profesor) }}" method="POST">
+                <form action="{{ route('profesores.update', ['profesore' => $profesor->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
 
@@ -26,7 +24,8 @@
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('nombre') border-red-500 @enderror"
-                            id="nombre" type="text" name="nombre" value="{{ old('nombre', $profesor->nombre) }}" required>
+                            id="nombre" type="text" name="nombre" value="{{ old('nombre', $profesor->nombre) }}"
+                            required>
                     </div>
 
                     <div class="mb-4">
@@ -70,12 +69,12 @@
 
                     <div class="flex items-center justify-between">
                         <button
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline transition-colors duration-300"
                             type="submit">
-                            Actualizar Profesor
+                            Actualizar
                         </button>
                         <a href="{{ route('profesores.index') }}"
-                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline transition-colors duration-300">
                             Cancelar
                         </a>
                     </div>
@@ -83,4 +82,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-layouts.layout>
