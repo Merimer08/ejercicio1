@@ -15,7 +15,7 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Alumno::all()/* ->sortBy('apellido') */;
+        $alumnos = Alumno::all()/* ->sortBy('apellido') */ ;
         return view("alumno.index", ['alumnos' => $alumnos]);
     }
 
@@ -29,51 +29,29 @@ class AlumnoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */public function store(StoreAlumnoRequest $request) /* store alumno reqyuest */
-{
-    // validad
-    //regoger los datos MANUEL
-    
-    $datos = $request -> input ();/* esto es laravel */
-    
-    $alumno = new alumno ($datos);
-    $alumno->save();
-    return redirect(route("alumnos.index"))->with('success', 'Alumno creado con éxito');
-    // $nombre= &POST['nombre']
+     */
+    public function store(StoreAlumnoRequest $request)
+    {
+        $validatedData = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'email' => 'required|email|unique:alumnos,email',
+            'edad' => 'required|integer|min:1|max:120',
+            'direccion' => 'required|string|max:255',
+        ]);
 
-    //guardar en la bd
- /*     $request->validate([
-        'nombre' => 'required|string|max:255',
-        'apellido' => 'required|string|max:255',
-        'email' => 'required|email|unique:alumnos,email',
-        'telefono' => 'nullable|string|max:15', // Permitir que teléfono sea nulo o un valor válido
-        
-        'edad' => 'required|integer|min:1', // Validación de edad'=> ',
-        'direccion' => 'required|string|max:255', // Validación de dirección
-    
-    ]);
+        $alumno = Alumno::create($validatedData);
 
-    Alumno::create([
-        'nombre' => $request->nombre,
-        'apellido' => $request->apellido,
-        'email' => $request->email,
-        'telefono' => $request->telefono,
-        'edad' => $request->edad, // Aquí se guarda el valor de la edad
-        'direccion' => $request->direccion,  // Aquí se guarda el valor de la dirección
-   
-   
-    ]);
-
-    return redirect()->route('alumnos.index')->with('success', 'Alumno creado con éxito');
-*/
+        return redirect()->route('alumnos.index')
+            ->with('success', 'Alumno creado con éxito');
     }
- 
+
     /**
      * Display the specified resource.
      */
     public function show(Alumno $alumno)
     {
-        //
+        return view('alumno.show', ['alumno' => $alumno]);
     }
 
     /**
@@ -81,18 +59,27 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        
+
         return view("alumno.edit", ["alumno" => $alumno]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
-        $alumno->update($request->all());
-        session()->flash("status","Se ha actualizado $alumno->nombre");
-        return redirect(route("alumnos.index"))->with('success', 'Alumno actualizado con éxito');
+        $validatedData = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'email' => 'required|email|unique:alumnos,email,' . $alumno->id,
+            'edad' => 'required|integer|min:1|max:120',
+            'direccion' => 'required|string|max:255',
+        ]);
+
+        $alumno->update($validatedData);
+
+        return redirect()->route('alumnos.index')
+            ->with('success', 'Alumno actualizado con éxito');
     }
 
     /**
@@ -101,8 +88,6 @@ class AlumnoController extends Controller
     public function destroy(Alumno $alumno)
     {
         $alumno->delete();
-        session()->flash("status","Se ha borrado $alumno->nombre");
-        return redirect(route("alumnos.index"));
-
+        return redirect()->route('alumnos.index')->with('success', 'Alumno eliminado con éxito');
     }
 }

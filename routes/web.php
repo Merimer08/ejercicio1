@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\AsignaturaController;
 
 Route::get('/', function () {
     return view('main');
@@ -26,10 +28,15 @@ Route::view("noticias", "noticias")->name("noticias");
 
 
 
-Route::resource('alumnos', AlumnoController::class);/* Metida el use arriba relevante */
-
+Route::resource('alumnos', AlumnoController::class);
+Route::resource('profesores', ProfesorController::class);
+Route::resource('asignaturas', AsignaturaController::class);
 
 Route::get("Profesores", [\App\Http\Controllers\ProfesorController::class, 'index'])->name("profesores");
 Route::get("Proyectos", [\App\Http\Controllers\ProyectoController::class, 'index'])->name("proyectos");/* devolver un apantalla no hace falta controlador */
 Route::view("Contacto", "contacto")->name("contacto");
-require __DIR__.'/auth.php';
+
+Route::post('asignaturas/{asignatura}/asignar-alumnos', [AsignaturaController::class, 'asignarAlumnos'])
+    ->name('asignaturas.asignar-alumnos');
+
+require __DIR__ . '/auth.php';

@@ -22,12 +22,35 @@ class StoreAlumnoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nombre"=> "required|string|max:255",
-            "apellido"=> "required|string|max:255", 
-            "email"=> "required|email|unique:alumnos",
-            "telefono"=> "nullable|string|max:15", // Permitir que teléfono sea nulo o un valor válido    
-            "edad"=> "required|integer|min:1", // Validación de edad'=> ',
-            "direccion"=> "required|string|max:255", // Validación de dirección     
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'email' => 'required|email|unique:alumnos,email',
+            'edad' => 'required|integer|min:1|max:120',
+            'direccion' => 'required|string|max:255',
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'nombre.required' => 'El nombre es obligatorio',
+            'nombre.max' => 'El nombre no puede tener más de 255 caracteres',
+            'apellido.required' => 'El apellido es obligatorio',
+            'apellido.max' => 'El apellido no puede tener más de 255 caracteres',
+            'email.required' => 'El email es obligatorio',
+            'email.email' => 'El email debe ser una dirección válida',
+            'email.unique' => 'Este email ya está registrado',
+            'edad.required' => 'La edad es obligatoria',
+            'edad.integer' => 'La edad debe ser un número entero',
+            'edad.min' => 'La edad debe ser mayor que 0',
+            'edad.max' => 'La edad debe ser menor que 120',
+            'direccion.required' => 'La dirección es obligatoria',
+            'direccion.max' => 'La dirección no puede tener más de 255 caracteres',
         ];
     }
 }

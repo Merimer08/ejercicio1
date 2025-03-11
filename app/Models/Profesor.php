@@ -9,13 +9,15 @@ class Profesor extends Model
 {
     use HasFactory;
 
+    protected $table = 'profesores';
+
     protected $fillable = [
         'nombre',
         'apellido',
-        'asignatura_id',
         'email',
+        'especialidad',
         'telefono',
-        'aula'
+        'asignatura_id'
     ];
 
     public function asignatura()

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAlumnoRequest extends FormRequest
+class UpdateProfesorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class UpdateAlumnoRequest extends FormRequest
         return [
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
-            'email' => 'required|email|unique:alumnos,email,' . $this->alumno->id,
-            'edad' => 'required|integer|min:1|max:120',
-            'direccion' => 'required|string|max:255',
+            'email' => 'required|email|unique:profesores,email,' . $this->profesor->id,
+            'especialidad' => 'required|string|max:255',
+            'telefono' => 'required|string|max:15',
         ];
     }
 
@@ -45,12 +45,10 @@ class UpdateAlumnoRequest extends FormRequest
             'email.required' => 'El email es obligatorio',
             'email.email' => 'El email debe ser una dirección válida',
             'email.unique' => 'Este email ya está registrado',
-            'edad.required' => 'La edad es obligatoria',
-            'edad.integer' => 'La edad debe ser un número entero',
-            'edad.min' => 'La edad debe ser mayor que 0',
-            'edad.max' => 'La edad debe ser menor que 120',
-            'direccion.required' => 'La dirección es obligatoria',
-            'direccion.max' => 'La dirección no puede tener más de 255 caracteres',
+            'especialidad.required' => 'La especialidad es obligatoria',
+            'especialidad.max' => 'La especialidad no puede tener más de 255 caracteres',
+            'telefono.required' => 'El teléfono es obligatorio',
+            'telefono.max' => 'El teléfono no puede tener más de 15 caracteres',
         ];
     }
 }

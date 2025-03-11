@@ -16,4 +16,9 @@ class Alumno extends Model
         'direccion',
         'email'
     ];
+
+    public function asignaturas()
+    {
+        return $this->belongsToMany(Asignatura::class, 'alumno_asignatura');
+    }
 }
