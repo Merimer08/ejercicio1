@@ -4,14 +4,14 @@
         @guest
             <!-- Vista para usuarios no autenticados -->
             <div class="flex justify-center items-center min-h-screen">
-                <div class="card w-96 bg-white shadow-xl rounded-lg">
+                <div class="card w-96 bg-white  bg-opacity-50 shadow-xl rounded-lg">
                     <div class="card-body text-center">
                         <h1 class="mb-5 text-5xl font-bold">Bienvenido</h1>
                         <p class="mb-5">
                             Para acceder, inicia sesión en la plataforma.
                         </p>
                         <a href="{{ route('login') }}"
-                            class="btn bg-orange-500 text-white hover:bg-orange-400 border-none">Iniciar Sesión</a>
+                            class="btn bg-orange-500 text-white hover:bg-orange-400 border-none">{{-- (Iniciar Sesión) --}}</a>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
         @auth
             <!-- Vista para usuarios autenticados -->
             <div class="flex justify-center items-center min-h-screen">
-                <div class="card w-96 bg-white shadow-xl rounded-lg">
+                <div class="card w-96 bg-white  shadow-xl rounded-lg">
                     <div class="card-body text-center">
                         <h2 class="mb-5 text-3xl font-bold justify-center card-title">Ver Infromacion</h2>
                         <p class="mb-4">Accede a las listas.</p>

@@ -284,5 +284,11 @@ image.png
 - composer require laravel-lang/common
 - php artisan lang:publish
 - php artisan lang:add en  <!-- cambias el idioma  -->
+- php artisan make:Controller LanguageController -i
+
+  
 
 Se crea una carpeta
+
+![alt text](image-1.png)
+- no genera los nuevos idiomss ni las traducciones culpa de la nueva verson 

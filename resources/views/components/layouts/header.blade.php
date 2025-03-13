@@ -11,6 +11,7 @@
 
     <!-- Menú en pantallas grandes (Login y Register visibles) -->
     <div class="hidden md:flex space-x-4">
+    
         @guest
             <a href="{{ route('login') }}" class="btn btn-sm btn-outline text-black hover:bg-orange-300 hover:text-black">Login</a>
             <a href="{{ route('register') }}" class="btn btn-sm btn-active text-black hover:bg-orange-300 hover:text-black">Register</a>
