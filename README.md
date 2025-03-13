@@ -255,3 +255,25 @@ esta sin hacer ni modificar
 # NOTICIAS
 
 image.png
+
+
+# como clonar un proyectp de Laravel subido a Git
+
+- Git clone ->http :
+ > Tener encuenta que hay ficheros/directorios que no se clonan y los necesito para poner en ejecucion mi ap
+
+ * .env
+ * node-modules
+ * vendor
+ ## .env
+  - Lo tengo que crear copiando (cp) .env . example
+
+## mode-modules
+- npm install
+
+## vendor
+- si la base de datos esq¡ta dojerizada, levanto docker
+* docker compose up -d
+- instalar la base de datos
+* php artisan migrate
+-
