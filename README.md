@@ -276,4 +276,13 @@ image.png
 * docker compose up -d
 - instalar la base de datos
 * php artisan migrate
--
+
+
+
+# Cambiar idioma
+- sudo apt install php-bcmath
+- composer require laravel-lang/common
+- php artisan lang:publish
+- php artisan lang:add en  <!-- cambias el idioma  -->
+
+Se crea una carpeta
