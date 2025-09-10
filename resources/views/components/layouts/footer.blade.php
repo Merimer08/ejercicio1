@@ -6,7 +6,7 @@
             <br />
             Providing reliable tech since 1991
         </p>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+        <p>Copyright © {{ now()->year }}</p>
     </aside>
     <nav>
         <div class="grid grid-flow-col gap-4">
